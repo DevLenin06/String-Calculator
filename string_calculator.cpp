@@ -7,8 +7,6 @@ using std::cout, std::endl;
 using std::string;
 
 unsigned int digit_to_decimal(char digit) {
-    // TODO(student): implement
-    //charNUM is the character turned into an integer
     unsigned int charNUM;
     if ((digit >= '!' && digit <= '/' )|| (digit >= '[' && digit <= '`') || ( digit == '^') || (digit == '{') || (digit == '}')) {
         throw std::invalid_argument("");
@@ -19,7 +17,6 @@ unsigned int digit_to_decimal(char digit) {
 }
 
 char decimal_to_digit(unsigned int decimal) {
-    // TODO(student): implement
     char charactNum;
     if ((decimal >= 33 && decimal <=47) || decimal >=49) {
         throw std::invalid_argument("");
@@ -31,28 +28,21 @@ char decimal_to_digit(unsigned int decimal) {
 }
 
 string trim_leading_zeros(string num) {
-    // TODO(student): implement
-    // cout << "num: " << num << endl;
-    //use the at.() function with the count number as the index
     string afterTrim = "";
     unsigned int i = 0;
     unsigned int countFirst = 0;
     unsigned int countLast = num.size() - 1;
 
-    //all 0's
-    
+  
 
-    //find first non-zero
     while (num.at(countFirst) == '0') {
         countFirst++;
         if (countFirst == countLast) {
             break;
         }
     }
-    //all 0's
 
     if (num.at(countFirst) == '0' && countFirst == (num.size()-1)) {
-        // cout << "Entered 0 loop" << endl;
         afterTrim = "0";
         return afterTrim;
     }
@@ -69,31 +59,15 @@ string trim_leading_zeros(string num) {
 }
 
 string add(string lhs, string rhs) {
-    // TODO(student): implement
     unsigned int answer = 0;
     unsigned int addition;
     int i;
     unsigned int digitRhs;
     unsigned int digitLhs;
-    //substring for adding 0's based on place, multiply this size by the number of 0's
-    // string placeString;
     string ans = "";
-    //for place value
-    // unsigned int placeVal = 1;
-    //to turn back into string
     char newNum;
     string backwardsAns;
 
-    // Make into numbers
-
-
-
-
-
-
-
-    // add 0 to the beggingin so it is same length
-    // new ,   NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE NEW CODE
     if (lhs.size() > 1) {
         lhs = trim_leading_zeros(lhs);
     }
@@ -137,7 +111,6 @@ string add(string lhs, string rhs) {
         backwardsAns += newNum;
     }
 
-    // switch backstring 
     int b;
     for (b = backwardsAns.size() - 1; b >= 0; b--) {
         ans += backwardsAns.at(b);
@@ -147,7 +120,6 @@ string add(string lhs, string rhs) {
 }
 
 string multiply(string lhs, string rhs) {
-    // TODO(student): implement
      if (lhs.size() > 1) {
         lhs = trim_leading_zeros(lhs);
     }
@@ -213,15 +185,11 @@ string multiply(string lhs, string rhs) {
             partialsum =  newNum + partialsum;
 
         }
-        // cout << "partial sum" << partialsum << endl;
         partialsum = partialsum + factor;
         factor = factor + "0";
         ans = add(ans, partialsum);
 
-        // string newPartialsum = "";
-        // int b;
-        // for (b = partialsum.size() - 1; b >= 0; b--) {
-        // newPartialsum += partialsum.at(b);
+      
     }
     
 
